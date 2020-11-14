@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div style="height: 500px;overflow-y: scroll;background: #C0C0BB">
+        <div style="height: 3000px" id="wrapper">
+
+        </div>
+    </div>
+<script>
+
+
+    let node = ""
+    for (let i = 0; i <1000 ; i++) {
+        node+=`<div style="height: 30px;background-color: palevioletred;margin-bottom: 5px">${i}</div>`
+    }
+    document.getElementById("wrapper").innerHTML= node
+
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+<body>
+<canvas width="300px" height="400px" id="canvas" ></canvas>
+
+<button id="downLoad">下载</button>
+</body>
+
+<script>
+
+  var canvas = document.getElementById('canvas')
+
+  var context = canvas.getContext('2d');
+
+  context.fillStyle = '#ffcd00'
+  context.fillRect(0,0,300,400)
+  context.fill()
+  context.fillStyle = '#000'
+  context.font= '48px serif'
+  context.fillText("成家相亲",50,50)
+
+
+
+  context.fillStyle = '#fff'
+  context.fillRect(50,80,200,300)
+  context.fill()
+
+  var img = new Image();   // 创建img元素
+  img.setAttribute("crossOrigin",'Anonymous')
+  img.style=''
+  img.onload = function(){
+      context.drawImage(img,50,100,200)
+  }
+  img.src = 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3655819698,856049418&fm=26&gp=0.jpgg';
+
+
+  document.getElementById('downLoad').addEventListener('click', () =>{
+      canvas.toBlob(function(blob) {
+          var a = document.createElement("a");
+          var body = document.getElementsByTagName("body");
+          document.body.appendChild(a);
+          a.download = "img" + ".jpg";
+          a.href = window.URL.createObjectURL(blob);
+
+          a.click();
+          a.remove()
+
+      });
+  })
+
+
+</script>
+</html>
